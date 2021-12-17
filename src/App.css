@@ -1,0 +1,250 @@
+.App {
+  text-align: center;
+}
+
+.full-width {
+  max-width: 100%;
+}
+
+.home-link {
+  font-size: 25px;
+  color: white !important;
+}
+
+.navbar-section {
+  background: rgb(28, 28, 28);
+  padding: 25px;
+}
+
+.btn-collection {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.btn-mint {
+  background-color: rgb(3, 186, 173);
+  border-color: rgb(3, 186, 173);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+  border-radius: 0;
+}
+
+.btn-mint:hover {
+  background-color: rgba(3, 186, 173, 0.8);
+}
+
+.btn-mint:focus {
+  background-color: rgba(3, 186, 173, 0.8);
+  box-shadow: none;
+}
+
+.high-roller-image {
+  width: -webkit-fill-available;
+}
+
+.mint-section {
+  background: black;
+  margin: 0;
+}
+
+.mint-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.ethereum-container {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ethereum-logo {
+  width: 120px;
+}
+
+.social-logo-container {
+  background-color: white;
+  border-radius: 50%;
+  padding: 0;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.social-logo {
+  width: 50px;
+}
+
+.mint-input {
+  background: transparent;
+  font-size: 35px;
+  padding: 2px 5px;
+  margin: 5px 15px;
+  width: 16%;
+  text-align: center;
+  color: white;
+}
+
+.mint-input:focus {
+  background: transparent;
+  color: white;
+}
+
+.mint-control {
+  background-color: transparent;
+  border: none;
+  font-size: 45px;
+}
+
+.mint-control:hover {
+  background: transparent;
+  border-color: #0b5ed7;
+}
+
+.mint-control:focus {
+  background: transparent;
+  border-color: #0b5ed7;
+  box-shadow: none;
+}
+
+.mint-controller-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.contact-section {
+  background: black;
+  padding: 5rem;
+}
+
+.contact-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid white;
+  padding: 2rem;
+}
+
+.btn-in-contacts {
+  background-color: rgb(3, 186, 173);
+  border-color: rgb(3, 186, 173);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+  border-radius: 0;
+}
+
+.btn-in-contacts:hover {
+  background-color: rgba(3, 186, 173, 0.8);
+}
+
+.footer-section {
+  background: black;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Terms {
+  color: white;
+}
+
+.social {
+  display: flex;
+}
+
+.font-1 {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif !important;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.font-2 {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif !important;
+  font-weight: bold;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.font-3 {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: 45px;
+}
+
+.font-4 {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: 30px;
+}
+
+.margin-top-50 {
+  margin-top: 50px;
+}
+
+.walletAddress {
+  color: rgba(3, 186, 173, 0.8);
+  /* font-size: 14px; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.connectedWallet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  border: solid 1px rgba(3, 186, 173, 0.8);
+  border-radius: 10px;
+}
+
+.disConnectWallet {
+  padding: 11px 15px;
+  border-radius: 10px;
+  color: rgba(3, 186, 173, 0.8);
+  background-color: rgba(255, 255, 255, 0.95);
+  font-size: 20px;
+  /* font-weight: 600; */
+}
+
+.connectWallet {
+  background-color: rgb(3, 186, 173);
+  border-color: rgb(3, 186, 173);
+  color: rgba(0, 0, 0, 0.8);
+  /* font-size: 30px; */
+  /* font-family: "Times New Roman", Times, serif; */
+  border-radius: 0;
+}
+
+.connectWallet:hover {
+  background-color: rgba(3, 186, 173, 0.8);
+}
+
+.connectWallet {
+  background: rgb(3, 186, 173);
+  /* color: #fff; */
+  border: none;
+  /* font-size: 14px; */
+  border-radius: 4px;
+  padding: 11px 28px;
+  /* font-weight: 600; */
+}
+
+.connectWallet .fa {
+  margin-right: 10px;
+}
