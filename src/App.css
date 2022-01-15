@@ -23,22 +23,14 @@
   margin-right: 10px;
 }
 
-.btn-mint {
-  background-color: rgb(3, 186, 173);
-  border-color: rgb(3, 186, 173);
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 30px;
-  font-family: "Times New Roman", Times, serif;
-  border-radius: 0;
+.div-mint {
+  display: flex;
+  justify-content: center;
 }
 
 .btn-mint:hover {
-  background-color: rgba(3, 186, 173, 0.8);
-}
-
-.btn-mint:focus {
-  background-color: rgba(3, 186, 173, 0.8);
-  box-shadow: none;
+  cursor: pointer;
+  width: fit-content;
 }
 
 .high-roller-image {
@@ -116,7 +108,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
+}
+
+.margin-bottom-40 {
+  margin-bottom: 40px;
 }
 
 .contact-section {
@@ -223,28 +219,6 @@
 }
 
 .connectWallet {
-  background-color: rgb(3, 186, 173);
-  border-color: rgb(3, 186, 173);
-  color: rgba(0, 0, 0, 0.8);
-  /* font-size: 30px; */
-  /* font-family: "Times New Roman", Times, serif; */
-  border-radius: 0;
-}
-
-.connectWallet:hover {
-  background-color: rgba(3, 186, 173, 0.8);
-}
-
-.connectWallet {
-  background: rgb(3, 186, 173);
-  /* color: #fff; */
-  border: none;
-  /* font-size: 14px; */
-  border-radius: 4px;
-  padding: 11px 28px;
-  /* font-weight: 600; */
-}
-
-.connectWallet .fa {
-  margin-right: 10px;
+  width: fit-content;
+  cursor: pointer;
 }

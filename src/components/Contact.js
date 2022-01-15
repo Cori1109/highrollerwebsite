@@ -1,21 +1,21 @@
-import { Button } from "react-bootstrap";
+import { Nav, Image } from "react-bootstrap";
 
 export default function Contact() {
   return (
     <div className="contact-section">
       <div className="contact-group">
-        <Button variant="success" className="btn-in-contacts">
-          TWITTER
-        </Button>
-        <Button variant="success" className="btn-in-contacts">
-          DISCORD
-        </Button>
-        <Button variant="success" className="btn-in-contacts">
-          OPENSEA
-        </Button>
-        <Button variant="success" className="btn-in-contacts">
-          VERIFIED CONTRACT
-        </Button>
+        <Nav.Link href="#">
+          <Image src="twitter-button.png" />
+        </Nav.Link>
+        <Nav.Link href="#">
+          <Image src="discord-button.png" />
+        </Nav.Link>
+        <Nav.Link href="#">
+          <Image src="opensea-button.png" />
+        </Nav.Link>
+        <Nav.Link href="#">
+          <Image src="verified-contract-button.png" />
+        </Nav.Link>
       </div>
     </div>
   );

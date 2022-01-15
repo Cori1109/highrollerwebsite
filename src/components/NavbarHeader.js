@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { useWeb3React } from "@web3-react/core";
 import { injected } from "../utils/connector";
 import logo from "../logo.svg";
+require("dotenv").config();
 
 export default function NavbarHeader() {
   const { chainId, active, activate, deactivate, account } = useWeb3React();
@@ -35,17 +36,14 @@ export default function NavbarHeader() {
       {active ? (
         <div className="connectedWallet">
           <div className="walletAddress">{account}</div>
-          <button
-            className="disConnectWallet"
-            onClick={() => disConnect(injected)}
-          >
-            DISCONNECT
-          </button>
+          <div className="connectWallet" onClick={() => disConnect(injected)}>
+            <img src="disconnect-button.png" alt="disconbtn" />
+          </div>
         </div>
       ) : (
-        <button className="connectWallet" onClick={() => connect(injected)}>
-          CONNECT
-        </button>
+        <div className="connectWallet" onClick={() => connect(injected)}>
+          <img src="connect-button.png" alt="conbtn" />
+        </div>
       )}
     </>
   );
