@@ -654,26 +654,6 @@
         "internalType": "bytes32[]",
         "name": "merkleProof",
         "type": "bytes32[]"
-      }
-    ],
-    "name": "checkCategory",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32[]",
-        "name": "merkleProof",
-        "type": "bytes32[]"
       },
       {
         "internalType": "uint256",

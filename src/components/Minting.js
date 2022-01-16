@@ -12,13 +12,18 @@ export default function Minting() {
   const [cntMint, setCntMint] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [stageVal, setStageVal] = useState(0);
-  const [purchaseLimit, setPurchaseLimit] = useState("");
   const [currentStage, setCurrentStage] = useState("");
   const [currentSupply, setCurrentSupply] = useState(0);
+  const [category, setCategory] = useState(0);
 
   useEffect(() => {
     if (cntMint <= 1) setCntMint(1);
     else if (cntMint > 10) setCntMint(10);
+
+    const account = window.ethereum.selectedAddress;
+    const merkleObj = proofMerkle(account);
+    const _category = merkleObj.category;
+    setCategory(_category);
   }, [cntMint]);
 
   useEffect(() => {
@@ -41,12 +46,6 @@ export default function Minting() {
     );
     setCurrentSupply(totalSupply);
 
-    let pLimit =
-      stVal === 0
-        ? "8 Max Per Wallet for Gold Rollerlist members, 5 Max Per Wallet for Silver Rollerlist members"
-        : "";
-
-    setPurchaseLimit(pLimit);
     setStageVal(stVal);
     if (!pauseVal) {
       if (stageVal === 0) setCurrentStage("Current Stage is Pre Sale");
@@ -62,6 +61,34 @@ export default function Minting() {
     }
   };
 
+  const getReadableErrorMsg = (error) => {
+    console.log("================");
+    console.log(error);
+    let readableErrorMsg = "Transaction Error";
+
+    if (error.message.indexOf("Address does not exist in list") > 0) {
+      readableErrorMsg = "You are not in the respective whitelist";
+    } else if (error.message.indexOf("All tokens have been minted") > 0) {
+      readableErrorMsg = "All tokens have been minted";
+    } else if (error.message.indexOf("Purchase would exceed max supply") > 0) {
+      readableErrorMsg = "Please choose less amount. Not enough tokens left";
+    } else if (error.message.indexOf("Minting is not active") > 0) {
+      readableErrorMsg = "Minting is not active. It will be resumed soon";
+    } else if (error.message.indexOf("All tokens have been minted") > 0) {
+      readableErrorMsg = "All tokens have been sold out";
+    } else if (error.message.indexOf("Purchase exceeds max allowed") > 0) {
+      if (stageVal === 0)
+        readableErrorMsg = "You are not allowed to mint more than 8 NFTs";
+      else readableErrorMsg = "You are not allowed to mint more than 5 NFTs";
+    } else if (error.message.indexOf("ETH amount is not sufficient") > 0) {
+      readableErrorMsg = "You don't have enough money";
+    } else if (error.message.indexOf("ETH amount is not sufficient") > 0) {
+      readableErrorMsg = "You don't have enough money";
+    }
+
+    return readableErrorMsg;
+  };
+
   const handleMint = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const HighRollerContract = new ethers.Contract(
@@ -70,7 +97,12 @@ export default function Minting() {
       provider.getSigner()
     );
 
-    let totalPrice = STAGE_PRICE[stageVal] * cntMint;
+    let totalPrice =
+      (stageVal === 0
+        ? category === 0
+          ? STAGE_PRICE[0]
+          : STAGE_PRICE[1]
+        : STAGE_PRICE[2]) * cntMint;
     let price = ethers.utils.parseEther(totalPrice.toString());
 
     try {
@@ -78,10 +110,11 @@ export default function Minting() {
         const account = window.ethereum.selectedAddress;
         const merkleObj = proofMerkle(account);
         console.log(merkleObj);
-        const category = merkleObj.category;
+        const _category = merkleObj.category;
+        setCategory(_category);
         const proof = merkleObj.proof;
 
-        if (category === 0) {
+        if (_category === 0) {
           await HighRollerContract.friendSale(proof, cntMint, { value: price })
             .then((tx) => {
               return tx.wait().then(
@@ -102,10 +135,10 @@ export default function Minting() {
               if (error.message.indexOf("signature") > 0) {
                 toast.error("You canceled transaction!");
               } else {
-                toast.error("Transaction Error!");
+                toast.error(getReadableErrorMsg(error));
               }
             });
-        } else if (category === 1) {
+        } else if (_category === 1) {
           await HighRollerContract.discordSale(proof, cntMint, { value: price })
             .then((tx) => {
               return tx.wait().then(
@@ -126,7 +159,7 @@ export default function Minting() {
               if (error.message.indexOf("signature") > 0) {
                 toast.error("You canceled transaction!");
               } else {
-                toast.error("Transaction Error!");
+                toast.error(getReadableErrorMsg(error));
               }
             });
         } else {
@@ -153,7 +186,7 @@ export default function Minting() {
             if (error.message.indexOf("signature")) {
               toast.error("You canceled transaction!");
             } else {
-              toast.error("Transaction Error!");
+              toast.error(getReadableErrorMsg(error));
             }
           });
       }
@@ -184,7 +217,14 @@ export default function Minting() {
             </div>
             <div className="ethereum-container">
               <Image src="ethereum.png" className="ethereum-logo" />
-              <span className="font-3">{STAGE_PRICE[stageVal]} ETH</span>
+              <span className="font-3">
+                {stageVal === 0
+                  ? category === 0
+                    ? STAGE_PRICE[0]
+                    : STAGE_PRICE[1]
+                  : STAGE_PRICE[2]}{" "}
+                ETH
+              </span>
             </div>
             <div className="mint-controller-group">
               <Button
