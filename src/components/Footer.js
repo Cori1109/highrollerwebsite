@@ -10,17 +10,20 @@ export default function Footer() {
       </div>
       <div className="logo">
         <Nav.Link href="#">
-          <img src={logo} alt="logo" width="70px" />
+          <Image src="logo_2.png" width={100} />
         </Nav.Link>
       </div>
       <div className="social">
-        <Nav.Link href="#" className="social-logo-container">
+        <Nav.Link
+          href="https://discord.gg/b4Zfmk86ZS"
+          className="social-logo-container"
+        >
           <Image src="discord.png" className="social-logo" />
         </Nav.Link>
-        <Nav.Link href="#" className="social-logo-container">
-          <Image src="facebook.png" className="social-logo" />
-        </Nav.Link>
-        <Nav.Link href="#" className="social-logo-container">
+        <Nav.Link
+          href="https://twitter.com/HighRollersccc"
+          className="social-logo-container"
+        >
           <Image src="twitter.png" className="social-logo" />
         </Nav.Link>
       </div>

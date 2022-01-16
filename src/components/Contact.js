@@ -4,10 +4,10 @@ export default function Contact() {
   return (
     <div className="contact-section">
       <div className="contact-group">
-        <Nav.Link href="#">
+        <Nav.Link href="https://twitter.com/HighRollersccc">
           <Image src="twitter-button.png" />
         </Nav.Link>
-        <Nav.Link href="#">
+        <Nav.Link href="https://discord.gg/b4Zfmk86ZS">
           <Image src="discord-button.png" />
         </Nav.Link>
         <Nav.Link href="#">

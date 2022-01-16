@@ -77,7 +77,7 @@ export default function Minting() {
     } else if (error.message.indexOf("All tokens have been minted") > 0) {
       readableErrorMsg = "All tokens have been sold out";
     } else if (error.message.indexOf("Purchase exceeds max allowed") > 0) {
-      if (stageVal === 0)
+      if (category === 0)
         readableErrorMsg = "You are not allowed to mint more than 8 NFTs";
       else readableErrorMsg = "You are not allowed to mint more than 5 NFTs";
     } else if (error.message.indexOf("ETH amount is not sufficient") > 0) {
@@ -163,7 +163,7 @@ export default function Minting() {
               }
             });
         } else {
-          toast.error("Unknown Error!");
+          toast.error("You are not in the WhiteList!");
         }
       } else if (stageVal === 1) {
         await HighRollerContract.publicMint(cntMint, { value: price })
@@ -198,10 +198,10 @@ export default function Minting() {
   return (
     <div>
       <Row className="mint-section">
-        <Col sm={7}>
+        <Col sm={6}>
           <Image src="background.PNG" className="high-roller-image" />
         </Col>
-        <Col xs={5} className="mint-column">
+        <Col xs={6} className="mint-column">
           <div>
             <div className="font-1">We Are Launching High Rollers</div>
             {/* <div className="font-2">{purchaseLimit}</div> */}

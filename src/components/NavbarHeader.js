@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Nav, Container, Button, Image } from "react-bootstrap";
 import { useWeb3React } from "@web3-react/core";
 import { injected } from "../utils/connector";
 import logo from "../logo.svg";
@@ -52,23 +52,17 @@ export default function NavbarHeader() {
     <Navbar className="navbar-section">
       <Container className="full-width">
         <Navbar.Brand href="#">
-          <img src={logo} alt="logo" width="70px" />
+          <Image src="logo_2.png" width={100} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#" className="home-link">
-              Home
-            </Nav.Link>
-          </Nav>
-          <Button variant="link" className="btn-collection">
-            View your collection
-          </Button>
-          <div className="font-2">{renderButton}</div>
-          {/* <Button variant="success" className="btn-connect">
-            {renderButton}
-          </Button> */}
-        </Navbar.Collapse>
+        <div id="basic-navbar-nav" className="nav-connect-bar">
+          <div className="div-mint">
+            <Button variant="link" className="btn-collection">
+              View your collection
+            </Button>
+            <div className="btn-connect">{renderButton}</div>
+          </div>
+        </div>
       </Container>
       <Toaster
         position="top-right"

@@ -11,9 +11,13 @@
   color: white !important;
 }
 
+.nav-connect-bar {
+  justify-content: flex-end;
+}
+
 .navbar-section {
   background: rgb(28, 28, 28);
-  padding: 25px;
+  flex-wrap: wrap;
 }
 
 .btn-collection {
@@ -31,6 +35,10 @@
 .btn-mint:hover {
   cursor: pointer;
   width: fit-content;
+}
+
+.btn-connect {
+  margin: auto;
 }
 
 .high-roller-image {
@@ -117,10 +125,13 @@
 
 .contact-section {
   background: black;
+  display: flex;
+  justify-content: center;
   padding: 5rem;
 }
 
 .contact-group {
+  width: max-content;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -221,4 +232,36 @@
 .connectWallet {
   width: fit-content;
   cursor: pointer;
+}
+
+@media (max-width: 780px) {
+  .mint-column {
+    width: 100%;
+  }
+
+  .contact-group {
+    flex-direction: column;
+  }
+
+  /* .nav-connect-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } */
+
+  .div-mint {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 360px) {
+  .social {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-section {
+    display: flex;
+    flex-direction: column;
+  }
 }
