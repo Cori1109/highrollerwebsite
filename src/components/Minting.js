@@ -81,9 +81,11 @@ export default function Minting() {
         readableErrorMsg = "You are not allowed to mint more than 8 NFTs";
       else readableErrorMsg = "You are not allowed to mint more than 5 NFTs";
     } else if (error.message.indexOf("ETH amount is not sufficient") > 0) {
-      readableErrorMsg = "You don't have enough money";
-    } else if (error.message.indexOf("ETH amount is not sufficient") > 0) {
-      readableErrorMsg = "You don't have enough money";
+      readableErrorMsg = "You have insufficient funds";
+    } else if (
+      error.message.indexOf("insufficient funds for gas * price + value") > 0
+    ) {
+      readableErrorMsg = "Insufficient funds for minting";
     }
 
     return readableErrorMsg;
